@@ -72,10 +72,10 @@ export const Shapes: Story = {
 export const WithStatus: Story = {
   render: () => (
     <div className="flex items-end gap-4">
-      <Avatar size="sm" fallback="AB" status="star" />
-      <Avatar size="md" fallback="CD" status="star" />
-      <Avatar size="lg" fallback="EF" status="star" />
-      <Avatar size="xl" src="https://i.pravatar.cc/150?img=5" status="star" />
+      <Avatar size="sm" shape="rounded" fallback="AB" status="star" />
+      <Avatar size="md" shape="rounded" fallback="CD" status="star" />
+      <Avatar size="lg" shape="rounded" fallback="EF" status="star" />
+      <Avatar size="xl" shape="rounded" src="https://i.pravatar.cc/150?img=5" status="star" />
     </div>
   ),
 };

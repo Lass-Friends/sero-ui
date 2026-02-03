@@ -31,7 +31,7 @@ const sizeClasses = {
   sm: "h-8 w-8 text-[10px]",
   md: "h-10 w-10 text-xs",
   lg: "h-12 w-12 text-sm",
-  xl: "h-24 w-24 text-xl",
+  xl: "h-36 w-36 text-xl",
 } as const;
 
 const statusSizes = {
@@ -40,6 +40,22 @@ const statusSizes = {
   md: "h-3 w-3",
   lg: "h-3.5 w-3.5",
   xl: "h-5 w-5",
+} as const;
+
+const avatarRadii = {
+  xs: "rounded-md",
+  sm: "rounded-lg",
+  md: "rounded-xl",
+  lg: "rounded-xl",
+  xl: "rounded-[24px]",
+} as const;
+
+const badgeRadii = {
+  xs: "rounded-sm",
+  sm: "rounded-sm",
+  md: "rounded",
+  lg: "rounded",
+  xl: "rounded-md",
 } as const;
 
 function Avatar({
@@ -60,37 +76,44 @@ function Avatar({
       data-size={size}
       data-shape={shape}
       className={cn(
-        "relative inline-flex shrink-0 items-center justify-center overflow-hidden ring-2 ring-background",
+        "relative inline-flex shrink-0 items-center justify-center",
         sizeClasses[size],
-        shape === "circle" ? "rounded-full" : "rounded-xl",
         className
       )}
       {...props}
     >
-      {src ? (
-        <img src={src} alt={alt} className="h-full w-full object-cover" />
-      ) : (
-        <div
-          className={cn(
-            "flex h-full w-full items-center justify-center font-semibold text-foreground",
-            colorClass
-          )}
-        >
-          {fallback?.slice(0, 2).toUpperCase()}
-        </div>
-      )}
+      <div
+        className={cn(
+          "h-full w-full overflow-hidden ring-2 ring-background",
+          shape === "circle" ? "rounded-full" : avatarRadii[size]
+        )}
+      >
+        {src ? (
+          <img src={src} alt={alt} className="h-full w-full object-cover" />
+        ) : (
+          <div
+            className={cn(
+              "flex h-full w-full items-center justify-center font-semibold text-foreground",
+              colorClass
+            )}
+          >
+            {fallback?.slice(0, 2).toUpperCase()}
+          </div>
+        )}
+      </div>
       {status === "star" && (
         <div
           data-slot="avatar-status"
           className={cn(
-            "absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-chart-2",
-            statusSizes[size]
+            "absolute -bottom-0.5 -right-0.5 flex items-center justify-center bg-chart-2 ring-2 ring-background",
+            statusSizes[size],
+            badgeRadii[size]
           )}
         >
           <svg
             viewBox="0 0 20 20"
             fill="currentColor"
-            className="h-full w-full p-px text-background"
+            className="h-3/4 w-3/4 text-background"
           >
             <path
               fillRule="evenodd"
