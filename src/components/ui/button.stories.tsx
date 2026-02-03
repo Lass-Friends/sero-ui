@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { PlusIcon } from "@heroicons/react/20/solid";
+import { ArrowDownIcon, TrashIcon } from "@heroicons/react/16/solid";
 import { Button } from "./button";
 
 const meta: Meta<typeof Button> = {
@@ -45,7 +45,7 @@ export const Primary: Story = {
       <Button variant="default" size="default">Default</Button>
       <Button variant="default" size="lg">Large</Button>
       <Button variant="default" size="icon" aria-label="Add">
-        <PlusIcon className="size-5" />
+        <ArrowDownIcon />
       </Button>
     </div>
   ),
@@ -58,7 +58,7 @@ export const Secondary: Story = {
       <Button variant="secondary" size="default">Default</Button>
       <Button variant="secondary" size="lg">Large</Button>
       <Button variant="secondary" size="icon" aria-label="Add">
-        <PlusIcon className="size-5" />
+        <ArrowDownIcon />
       </Button>
     </div>
   ),
@@ -71,7 +71,7 @@ export const Outline: Story = {
       <Button variant="outline" size="default">Default</Button>
       <Button variant="outline" size="lg">Large</Button>
       <Button variant="outline" size="icon" aria-label="Add">
-        <PlusIcon className="size-5" />
+        <ArrowDownIcon />
       </Button>
     </div>
   ),
@@ -84,7 +84,7 @@ export const Ghost: Story = {
       <Button variant="ghost" size="default">Default</Button>
       <Button variant="ghost" size="lg">Large</Button>
       <Button variant="ghost" size="icon" aria-label="Add">
-        <PlusIcon className="size-5" />
+        <ArrowDownIcon />
       </Button>
     </div>
   ),
@@ -96,16 +96,9 @@ export const Destructive: Story = {
       <Button variant="destructive" size="sm">Small</Button>
       <Button variant="destructive" size="default">Default</Button>
       <Button variant="destructive" size="lg">Large</Button>
-    </div>
-  ),
-};
-
-export const Link: Story = {
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Button variant="link" size="sm">Small</Button>
-      <Button variant="link" size="default">Default</Button>
-      <Button variant="link" size="lg">Large</Button>
+      <Button variant="destructive" size="icon" aria-label="Delete">
+        <TrashIcon />
+      </Button>
     </div>
   ),
 };

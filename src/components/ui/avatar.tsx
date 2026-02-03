@@ -8,11 +8,14 @@ const squircleMask = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 const badgeMask = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,42 C 0,10 10,0 42,0 L 58,0 C 90,0 100,10 100,42 L 100,58 C 100,90 90,100 58,100 L 42,100 C 10,100 0,90 0,58 Z' fill='black'/%3E%3C/svg%3E")`;
 
 const AVATAR_COLORS = [
-  "bg-chart-1",
-  "bg-chart-2",
-  "bg-chart-3",
-  "bg-chart-4",
-  "bg-chart-5",
+  "bg-red-400",
+  "bg-orange-400",
+  "bg-amber-400",
+  "bg-emerald-400",
+  "bg-cyan-400",
+  "bg-blue-400",
+  "bg-violet-400",
+  "bg-pink-400",
 ];
 
 function getColorFromString(str: string) {
@@ -36,7 +39,7 @@ const sizeClasses = {
   xs: "h-6 w-6 text-[8px]",
   sm: "h-8 w-8 text-[10px]",
   md: "h-10 w-10 text-xs",
-  lg: "h-12 w-12 text-sm",
+  lg: "h-24 w-24 text-lg",
   xl: "h-36 w-36 text-xl",
 } as const;
 
@@ -48,21 +51,6 @@ const statusSizes = {
   xl: "h-6 w-6",
 } as const;
 
-const avatarRadii = {
-  xs: "rounded-md",
-  sm: "rounded-lg",
-  md: "rounded-xl",
-  lg: "rounded-xl",
-  xl: "rounded-[24px]",
-} as const;
-
-const badgeRadii = {
-  xs: "rounded-sm",
-  sm: "rounded-sm",
-  md: "rounded",
-  lg: "rounded",
-  xl: "rounded-md",
-} as const;
 
 function Avatar({
   className,
@@ -90,8 +78,8 @@ function Avatar({
     >
       <div
         className={cn(
-          "h-full w-full overflow-hidden border-2 border-[#0A0A0A]",
-          shape === "circle" ? "rounded-full" : avatarRadii[size]
+          "h-full w-full overflow-hidden",
+          shape === "circle" && "rounded-full border-2 border-[#0A0A0A]"
         )}
         style={shape === "rounded" ? { maskImage: squircleMask, maskSize: "100% 100%" } : undefined}
       >
@@ -100,7 +88,7 @@ function Avatar({
         ) : (
           <div
             className={cn(
-              "flex h-full w-full items-center justify-center font-semibold text-foreground",
+              "flex h-full w-full items-center justify-center font-semibold text-background",
               colorClass
             )}
           >

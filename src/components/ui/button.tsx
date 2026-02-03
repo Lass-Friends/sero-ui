@@ -15,17 +15,17 @@ const buttonVariants = cva(
         outline:
           "border border-border bg-background hover:bg-accent/50 active:bg-accent/70",
         secondary:
-          "bg-secondary text-secondary-foreground border border-border hover:bg-accent active:bg-accent/80 disabled:bg-foreground disabled:text-background disabled:border-transparent",
+          "bg-[#FAFAFA] text-[#0F0F0F] border border-[#0A0A0A] hover:bg-[#FAFAFA]/80 active:bg-[#FAFAFA]/70 disabled:opacity-40",
         ghost:
           "bg-accent/20 hover:bg-accent/50 active:bg-accent/70 disabled:bg-transparent disabled:text-background",
         link: "text-foreground underline-offset-4 hover:underline active:text-primary/80 disabled:text-background disabled:no-underline hover:text-primary hover:bg-card",
       },
       size: {
         default: "h-8 px-3 py-2 has-[>svg]:px-3",
-        sm: "h-7 rounded-md px-3 py-2 has-[>svg]:px-2.5 text-xs",
-        lg: "h-10 rounded-md px-8 py-2 has-[>svg]:px-4",
+        sm: "h-7 px-3 py-2 has-[>svg]:px-2.5 text-xs",
+        lg: "h-10 px-8 py-2 has-[>svg]:px-4",
         icon: "size-8",
-        "icon-xs": "size-6 rounded-md [&_svg:not([class*='size-'])]:size-3",
+        "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
         "icon-sm": "size-7",
         "icon-lg": "size-10",
       },

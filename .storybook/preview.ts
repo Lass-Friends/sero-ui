@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react-vite";
 import { withThemeByClassName } from "@storybook/addon-themes";
+import { themes } from "@storybook/theming";
 import "../src/styles/globals.css";
 
 const preview: Preview = {
@@ -17,6 +18,9 @@ const preview: Preview = {
       storySort: {
         method: "alphabetical",
       },
+    },
+    docs: {
+      theme: themes.dark,
     },
   },
   decorators: [

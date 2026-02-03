@@ -44,59 +44,48 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex items-end gap-4">
-      <Avatar size="xs" fallback="XS" />
-      <Avatar size="sm" fallback="SM" />
-      <Avatar size="md" fallback="MD" />
-      <Avatar size="lg" fallback="LG" />
-      <Avatar size="xl" fallback="XL" />
-    </div>
-  ),
-};
-
-export const WithImage: Story = {
-  render: () => (
-    <div className="flex items-end gap-4">
-      <Avatar size="sm" src="https://i.pravatar.cc/150?img=1" alt="User" />
-      <Avatar size="md" src="https://i.pravatar.cc/150?img=2" alt="User" />
-      <Avatar size="lg" src="https://i.pravatar.cc/150?img=3" alt="User" />
+    <div className="flex flex-col gap-4">
+      <div className="flex items-end gap-4">
+        <Avatar size="xs" shape="circle" fallback="xs" />
+        <Avatar size="sm" shape="circle" fallback="sm" />
+        <Avatar size="md" shape="circle" fallback="md" />
+      </div>
+      <div className="flex items-end gap-4">
+        <Avatar size="xs" shape="rounded" fallback="xs" />
+        <Avatar size="sm" shape="rounded" fallback="sm" />
+        <Avatar size="md" shape="rounded" fallback="md" />
+        <Avatar size="lg" shape="rounded" fallback="lg" />
+        <Avatar size="xl" shape="rounded" fallback="xl" />
+      </div>
     </div>
   ),
 };
 
 export const WithFallback: Story = {
   render: () => (
-    <div className="flex items-center gap-4">
-      <Avatar size="md" fallback="John Doe" />
-      <Avatar size="md" fallback="Jane Smith" />
-      <Avatar size="md" fallback="Alex Brown" />
-      <Avatar size="md" fallback="Sam Wilson" />
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-4">
+        <Avatar shape="circle" fallback="John Doe" />
+        <Avatar shape="circle" fallback="Jane Smith" />
+        <Avatar shape="circle" fallback="Alex Brown" />
+        <Avatar shape="circle" fallback="Sam Wilson" />
+      </div>
+      <div className="flex items-center gap-4">
+        <Avatar shape="rounded" fallback="John Doe" />
+        <Avatar shape="rounded" fallback="Jane Smith" />
+        <Avatar shape="rounded" fallback="Alex Brown" />
+        <Avatar shape="rounded" fallback="Sam Wilson" />
+      </div>
     </div>
   ),
-};
-
-export const Shapes: Story = {
-  args: {
-    size: "lg",
-    shape: "rounded",
-    status: "star"
-  },
-
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Avatar size="lg" shape="circle" fallback="CI" />
-      <Avatar size="lg" shape="rounded" fallback="RO" />
-    </div>
-  )
 };
 
 export const WithStatus: Story = {
   render: () => (
     <div className="flex items-end gap-4">
-      <Avatar size="sm" shape="rounded" fallback="AB" status="star" />
-      <Avatar size="md" shape="rounded" fallback="CD" status="star" />
-      <Avatar size="lg" shape="rounded" fallback="EF" status="star" />
-      <Avatar size="xl" shape="rounded" src="https://i.pravatar.cc/150?img=5" status="star" />
+      <Avatar size="md" shape="rounded" src="https://i.pravatar.cc/150?img=1" status="star" />
+      <Avatar size="lg" shape="rounded" src="https://i.pravatar.cc/150?img=1" status="star" />
+      <Avatar size="xl" shape="rounded" src="https://i.pravatar.cc/150?img=1" status="star" />
     </div>
   ),
 };
