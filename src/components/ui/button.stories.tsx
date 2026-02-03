@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Plus } from "lucide-react";
+import { PlusIcon } from "@heroicons/react/20/solid";
 import { Button } from "./button";
 
 const meta: Meta<typeof Button> = {
@@ -31,7 +31,7 @@ export const Default: Story = {
       <Button variant="default" size="default">Default</Button>
       <Button variant="default" size="lg">Large</Button>
       <Button variant="default" size="icon" aria-label="Add">
-        <Plus className="size-5" />
+        <PlusIcon className="size-5" />
       </Button>
     </div>
   ),
@@ -44,7 +44,7 @@ export const Secondary: Story = {
       <Button variant="secondary" size="default">Default</Button>
       <Button variant="secondary" size="lg">Large</Button>
       <Button variant="secondary" size="icon" aria-label="Add">
-        <Plus className="size-5" />
+        <PlusIcon className="size-5" />
       </Button>
     </div>
   ),
@@ -57,7 +57,7 @@ export const Outline: Story = {
       <Button variant="outline" size="default">Default</Button>
       <Button variant="outline" size="lg">Large</Button>
       <Button variant="outline" size="icon" aria-label="Add">
-        <Plus className="size-5" />
+        <PlusIcon className="size-5" />
       </Button>
     </div>
   ),
@@ -70,7 +70,7 @@ export const Ghost: Story = {
       <Button variant="ghost" size="default">Default</Button>
       <Button variant="ghost" size="lg">Large</Button>
       <Button variant="ghost" size="icon" aria-label="Add">
-        <Plus className="size-5" />
+        <PlusIcon className="size-5" />
       </Button>
     </div>
   ),

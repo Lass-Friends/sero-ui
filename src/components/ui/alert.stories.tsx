@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { MousePointerClick } from "lucide-react";
+import { CursorArrowRaysIcon } from "@heroicons/react/20/solid";
 import { Alert } from "./alert";
 import { Button } from "./button";
 
@@ -19,7 +19,7 @@ export const Default: Story = {
   render: () => (
     <div className="w-[480px]">
       <Alert
-        icon={<MousePointerClick className="size-5 text-foreground" />}
+        icon={<CursorArrowRaysIcon className="size-5 text-foreground" />}
         title="Alert Title"
         description="This is an alert description."
         action={<Button variant="outline">Action</Button>}
@@ -32,7 +32,7 @@ export const WithoutAction: Story = {
   render: () => (
     <div className="w-[480px]">
       <Alert
-        icon={<MousePointerClick className="size-5 text-foreground" />}
+        icon={<CursorArrowRaysIcon className="size-5 text-foreground" />}
         title="Alert Title"
         description="This is an alert description without an action button."
       />
@@ -56,7 +56,7 @@ export const TitleOnly: Story = {
   render: () => (
     <div className="w-[480px]">
       <Alert
-        icon={<MousePointerClick className="size-5 text-foreground" />}
+        icon={<CursorArrowRaysIcon className="size-5 text-foreground" />}
         title="Alert with title only"
       />
     </div>

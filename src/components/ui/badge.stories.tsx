@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Check, Star } from "lucide-react";
+import { CheckIcon, StarIcon } from "@heroicons/react/20/solid";
 import { Badge } from "./badge";
 
 const meta: Meta<typeof Badge> = {
@@ -54,13 +54,13 @@ export const Muted: Story = {
 export const WithIcon: Story = {
   render: () => (
     <div className="flex items-center gap-4">
-      <Badge variant="default" icon={<Check className="size-3" />}>
+      <Badge variant="default" icon={<CheckIcon className="size-3" />}>
         Attending
       </Badge>
-      <Badge variant="primary" icon={<Star className="size-3" />}>
+      <Badge variant="primary" icon={<StarIcon className="size-3" />}>
         Featured
       </Badge>
-      <Badge variant="muted" icon={<Check className="size-3" />}>
+      <Badge variant="muted" icon={<CheckIcon className="size-3" />}>
         Verified
       </Badge>
     </div>
