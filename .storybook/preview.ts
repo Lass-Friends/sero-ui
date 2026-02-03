@@ -1,7 +1,14 @@
 import type { Preview } from "@storybook/react-vite";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { themes } from "@storybook/theming";
+import { create } from "storybook/theming";
 import "../src/styles/globals.css";
+
+const seroTheme = create({
+  base: "dark",
+  appBg: "#000000",
+  appContentBg: "#000000",
+  barBg: "#000000",
+});
 
 const preview: Preview = {
   parameters: {
@@ -20,7 +27,7 @@ const preview: Preview = {
       },
     },
     docs: {
-      theme: themes.dark,
+      theme: seroTheme,
     },
   },
   decorators: [
