@@ -18,6 +18,12 @@ const meta: Meta<typeof Button> = {
       control: "select",
       options: ["default", "sm", "lg", "icon", "icon-xs", "icon-sm", "icon-lg"],
     },
+    children: {
+      control: "text",
+    },
+    disabled: {
+      control: "boolean",
+    },
   },
 };
 
@@ -25,6 +31,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
+  args: {
+    variant: "default",
+    size: "default",
+    children: "Button",
+  },
+};
+
+export const Primary: Story = {
   render: () => (
     <div className="flex items-center gap-4">
       <Button variant="default" size="sm">Small</Button>

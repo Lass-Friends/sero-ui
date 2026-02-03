@@ -2,16 +2,19 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const alertVariants = cva("flex items-center gap-6 rounded-xl px-3 py-2 pl-2", {
-  variants: {
-    variant: {
-      default: "bg-card",
+const alertVariants = cva(
+  "flex items-center gap-6 rounded-xl p-2 pr-3",
+  {
+    variants: {
+      variant: {
+        default: "bg-card",
+      },
     },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-});
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
 
 export interface AlertProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -40,7 +43,7 @@ function Alert({
       className={cn(alertVariants({ variant }), className)}
       {...props}
     >
-      <div className="flex flex-1 items-start gap-3">
+      <div className="flex flex-1 items-center gap-3">
         {icon && (
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-background">
             {icon}
@@ -64,7 +67,10 @@ function AlertTitle({
   return (
     <h5
       data-slot="alert-title"
-      className={cn("text-sm font-medium text-foreground", className)}
+      className={cn(
+        "text-sm font-semibold tracking-[-0.03em] text-foreground",
+        className
+      )}
       {...props}
     />
   );
@@ -77,7 +83,10 @@ function AlertDescription({
   return (
     <p
       data-slot="alert-description"
-      className={cn("text-xs font-medium text-muted-foreground", className)}
+      className={cn(
+        "text-xs font-medium tracking-[-0.03em] text-muted-foreground",
+        className
+      )}
       {...props}
     />
   );

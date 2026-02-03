@@ -10,6 +10,14 @@ const meta: Meta<typeof Alert> = {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    title: {
+      control: "text",
+    },
+    description: {
+      control: "text",
+    },
+  },
 };
 
 export default meta;
@@ -23,41 +31,6 @@ export const Default: Story = {
         title="Alert Title"
         description="This is an alert description."
         action={<Button variant="outline">Action</Button>}
-      />
-    </div>
-  ),
-};
-
-export const WithoutAction: Story = {
-  render: () => (
-    <div className="w-[480px]">
-      <Alert
-        icon={<CursorArrowRaysIcon className="size-5 text-foreground" />}
-        title="Alert Title"
-        description="This is an alert description without an action button."
-      />
-    </div>
-  ),
-};
-
-export const WithoutIcon: Story = {
-  render: () => (
-    <div className="w-[480px]">
-      <Alert
-        title="Alert Title"
-        description="This is an alert without an icon."
-        action={<Button variant="outline">Action</Button>}
-      />
-    </div>
-  ),
-};
-
-export const TitleOnly: Story = {
-  render: () => (
-    <div className="w-[480px]">
-      <Alert
-        icon={<CursorArrowRaysIcon className="size-5 text-foreground" />}
-        title="Alert with title only"
       />
     </div>
   ),

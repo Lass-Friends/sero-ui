@@ -21,11 +21,26 @@ const meta: Meta<typeof Avatar> = {
       control: "select",
       options: ["none", "star"],
     },
+    fallback: {
+      control: "text",
+    },
+    src: {
+      control: "text",
+    },
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    size: "md",
+    shape: "circle",
+    status: "none",
+    fallback: "JD",
+  },
+};
 
 export const Sizes: Story = {
   render: () => (
@@ -61,12 +76,18 @@ export const WithFallback: Story = {
 };
 
 export const Shapes: Story = {
+  args: {
+    size: "lg",
+    shape: "rounded",
+    status: "star"
+  },
+
   render: () => (
     <div className="flex items-center gap-4">
       <Avatar size="lg" shape="circle" fallback="CI" />
       <Avatar size="lg" shape="rounded" fallback="RO" />
     </div>
-  ),
+  )
 };
 
 export const WithStatus: Story = {
