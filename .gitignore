@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# storybook
+storybook-static/
+
+# library build
+/dist
+
+# mcp config (may contain API keys)
+.mcp.json
+
+*storybook.log
