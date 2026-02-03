@@ -29,11 +29,6 @@
       "import": "./dist/avatar-group.js",
       "require": "./dist/avatar-group.cjs"
     },
-    "./utils": {
-      "types": "./dist/utils.d.ts",
-      "import": "./dist/utils.js",
-      "require": "./dist/utils.cjs"
-    },
     "./styles": "./dist/globals.css"
   },
   "files": [
@@ -42,7 +37,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
-    "build": "tsup",
+    "build": "tsup && cp src/styles/globals.css dist/globals.css",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

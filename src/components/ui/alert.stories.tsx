@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { MousePointerClick } from "lucide-react";
 import { Alert } from "./alert";
-import { Button } from "../button";
+import { Button } from "./button";
 
 const meta: Meta<typeof Alert> = {
   title: "UI/Alert",

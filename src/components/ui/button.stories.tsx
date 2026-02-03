@@ -24,7 +24,6 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Default
 export const Default: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -38,7 +37,6 @@ export const Default: Story = {
   ),
 };
 
-// Secondary
 export const Secondary: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -52,7 +50,6 @@ export const Secondary: Story = {
   ),
 };
 
-// Outline
 export const Outline: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -66,7 +63,6 @@ export const Outline: Story = {
   ),
 };
 
-// Ghost
 export const Ghost: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -80,7 +76,6 @@ export const Ghost: Story = {
   ),
 };
 
-// Destructive
 export const Destructive: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -91,7 +86,6 @@ export const Destructive: Story = {
   ),
 };
 
-// Link
 export const Link: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -102,7 +96,6 @@ export const Link: Story = {
   ),
 };
 
-// AsChild Example
 export const AsChild: Story = {
   render: () => (
     <div className="flex items-center gap-4">

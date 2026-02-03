@@ -3,12 +3,11 @@ import { defineConfig } from "tsup";
 
 export default defineConfig({
   entry: {
-    button: "src/components/ui/button/index.ts",
-    badge: "src/components/ui/badge/index.ts",
-    alert: "src/components/ui/alert/index.ts",
-    avatar: "src/components/ui/avatar/index.ts",
-    "avatar-group": "src/components/ui/avatar-group/index.ts",
-    utils: "src/lib/cn.ts",
+    button: "src/components/ui/button.tsx",
+    badge: "src/components/ui/badge.tsx",
+    alert: "src/components/ui/alert.tsx",
+    avatar: "src/components/ui/avatar.tsx",
+    "avatar-group": "src/components/ui/avatar-group.tsx",
   },
   format: ["cjs", "esm"],
   dts: {
@@ -22,11 +21,10 @@ export default defineConfig({
   esbuildOptions(options) {
     options.alias = {
       ...options.alias,
-      "@/lib/cn": path.resolve(__dirname, "src/lib/cn.ts"),
+      "@/lib/utils": path.resolve(__dirname, "src/lib/utils.ts"),
     };
   },
   outDir: "dist",
   clean: true,
-  tsconfig: "tsconfig.build.json",
-  onSuccess: "cp src/styles/globals.css dist/globals.css",
+  tsconfig: "tsconfig.app.json",
 });

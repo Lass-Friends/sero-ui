@@ -24,7 +24,6 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Default
 export const Default: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -34,7 +33,6 @@ export const Default: Story = {
   ),
 };
 
-// Primary
 export const Primary: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -44,7 +42,6 @@ export const Primary: Story = {
   ),
 };
 
-// Muted
 export const Muted: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -54,7 +51,6 @@ export const Muted: Story = {
   ),
 };
 
-// With Icon
 export const WithIcon: Story = {
   render: () => (
     <div className="flex items-center gap-4">

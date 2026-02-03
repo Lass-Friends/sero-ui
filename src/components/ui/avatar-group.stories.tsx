@@ -32,12 +32,10 @@ const meta: Meta<typeof AvatarGroup> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Default
 export const Default: Story = {
   render: () => <AvatarGroup avatars={sampleAvatars} max={4} />,
 };
 
-// Different Sizes
 export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-4">
@@ -48,17 +46,14 @@ export const Sizes: Story = {
   ),
 };
 
-// With Badge
 export const WithBadge: Story = {
   render: () => <AvatarGroup avatars={sampleAvatars} max={4} badge="Attending" />,
 };
 
-// No Overflow
 export const NoOverflow: Story = {
   render: () => <AvatarGroup avatars={sampleAvatars.slice(0, 3)} max={5} />,
 };
 
-// With Images
 export const WithImages: Story = {
   render: () => (
     <AvatarGroup

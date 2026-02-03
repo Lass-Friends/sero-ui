@@ -1,6 +1,6 @@
 import * as React from "react";
-import { cn } from "@/lib/cn";
-import { Avatar, type AvatarProps } from "@/components/ui/avatar";
+import { cn } from "@/lib/utils";
+import { Avatar, type AvatarProps } from "./avatar";
 
 export interface AvatarData {
   src?: string;

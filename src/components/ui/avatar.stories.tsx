@@ -27,7 +27,6 @@ const meta: Meta<typeof Avatar> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Sizes
 export const Sizes: Story = {
   render: () => (
     <div className="flex items-end gap-4">
@@ -40,7 +39,6 @@ export const Sizes: Story = {
   ),
 };
 
-// With Image
 export const WithImage: Story = {
   render: () => (
     <div className="flex items-end gap-4">
@@ -51,7 +49,6 @@ export const WithImage: Story = {
   ),
 };
 
-// With Fallback
 export const WithFallback: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -63,7 +60,6 @@ export const WithFallback: Story = {
   ),
 };
 
-// Shapes
 export const Shapes: Story = {
   render: () => (
     <div className="flex items-center gap-4">
@@ -73,7 +69,6 @@ export const Shapes: Story = {
   ),
 };
 
-// With Star Status
 export const WithStatus: Story = {
   render: () => (
     <div className="flex items-end gap-4">

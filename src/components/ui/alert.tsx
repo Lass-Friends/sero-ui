@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 
 const alertVariants = cva("flex items-center gap-6 rounded-xl px-3 py-2 pl-2", {
   variants: {
