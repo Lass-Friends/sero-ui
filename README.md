@@ -17,7 +17,8 @@ import { Button } from "@sero/ui/button";
 import { Avatar } from "@sero/ui/avatar";
 import { Badge } from "@sero/ui/badge";
 import { Alert } from "@sero/ui/alert";
-import { ButtonToggle } from "@sero/ui/button-toggle";
+import { Accordion } from "@sero/ui/accordion";
+import { Banner } from "@sero/ui/banner";
 ```
 
 Import the styles in your app:
@@ -28,12 +29,15 @@ import "@sero/ui/styles";
 
 ## Components
 
+- **Accordion** - Collapsible content sections with smooth animations
+- **Alert** - Alert messages with icons and actions
+- **AlertDialog** - Modal dialogs for confirmations and alerts
+- **Avatar** - User avatars with fallback initials and status badges
+- **AvatarGroup** - Stacked avatar groups with count badge
+- **Badge** - Status badges with icons
+- **Banner** - Hero banners with 6 variants (flagship/profile/manage × mobile/desktop)
 - **Button** - Primary, secondary, outline, ghost, and destructive variants
 - **ButtonToggle** - Toggle button with attend/pending/attending states
-- **Avatar** - User avatars with fallback initials and status badges
-- **AvatarGroup** - Stacked avatar groups
-- **Badge** - Status badges with icons
-- **Alert** - Alert messages with icons and actions
 
 ## Development
 
