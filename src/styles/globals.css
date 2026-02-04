@@ -3,6 +3,50 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ================================================
+   Font Definitions
+   ================================================ */
+
+@font-face {
+  font-family: "Whyte Inktrap";
+  src: url("../fonts/ABCWhyteInktrapVariable-Trial.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../fonts/SF-Pro-Text-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../fonts/SF-Pro-Text-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../fonts/SF-Pro-Text-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  src: url("../fonts/SF-Pro-Text-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================================================
    Sero Design Tokens (OKLch color space)
    ================================================ */
 
@@ -70,8 +114,32 @@
 }
 
 @theme inline {
+  --font-sans: "SF Pro Text", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Whyte Inktrap", ui-sans-serif, system-ui, sans-serif;
   --font-size-xxs: 11px;
   --font-size-xxs--line-height: 1.25;
+
+  /* Accordion animations */
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -111,9 +179,12 @@
     @apply border-border outline-ring/50 tracking-normal;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
   svg {
     shape-rendering: geometricPrecision;

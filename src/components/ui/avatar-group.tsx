@@ -42,7 +42,7 @@ function AvatarGroup({
       {(count !== undefined || attending !== undefined) && (
         <Badge
           variant="attending"
-          className="ml-0.5"
+          className="ml-0.5 ring-2 ring-background"
           icon={
             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" className="text-primary">
               <path
@@ -56,7 +56,7 @@ function AvatarGroup({
         >
           <span className="text-xs font-semibold tracking-[-0.03em]">{count}</span>
           {attending !== undefined && (
-            <span className="-ml-0.5 text-xxs font-medium tracking-[-0.03em] text-muted-foreground">({attending})</span>
+            <span className="-ml-px text-[11px] font-medium tracking-[-0.03em] text-muted-foreground">({attending})</span>
           )}
         </Badge>
       )}

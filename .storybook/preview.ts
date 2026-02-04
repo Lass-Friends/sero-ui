@@ -22,8 +22,18 @@ const preview: Preview = {
       test: "todo",
     },
     options: {
-      storySort: {
-        method: "alphabetical",
+      storySort: (a, b) => {
+        // First sort by title (component) alphabetically
+        const titleCompare = a.title.localeCompare(b.title);
+        if (titleCompare !== 0) return titleCompare;
+        // Within same component: Docs at the bottom
+        if (a.type === "docs" && b.type !== "docs") return 1;
+        if (a.type !== "docs" && b.type === "docs") return -1;
+        // Default at the top
+        if (a.name === "Default" && b.name !== "Default") return -1;
+        if (a.name !== "Default" && b.name === "Default") return 1;
+        // Then alphabetical by story name
+        return a.name.localeCompare(b.name);
       },
     },
     docs: {
