@@ -6,6 +6,7 @@ export default defineConfig({
     button: "src/components/ui/button.tsx",
     badge: "src/components/ui/badge.tsx",
     alert: "src/components/ui/alert.tsx",
+    "alert-dialog": "src/components/ui/alert-dialog.tsx",
     avatar: "src/components/ui/avatar.tsx",
     "avatar-group": "src/components/ui/avatar-group.tsx",
   },
