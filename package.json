@@ -24,6 +24,11 @@
       "import": "./dist/alert-dialog.js",
       "require": "./dist/alert-dialog.cjs"
     },
+    "./alert-dialog-2": {
+      "types": "./dist/alert-dialog-2.d.ts",
+      "import": "./dist/alert-dialog-2.js",
+      "require": "./dist/alert-dialog-2.cjs"
+    },
     "./avatar": {
       "types": "./dist/avatar.d.ts",
       "import": "./dist/avatar.js",
