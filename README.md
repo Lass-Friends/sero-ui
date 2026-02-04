@@ -19,6 +19,7 @@ import { Badge } from "@sero/ui/badge";
 import { Alert } from "@sero/ui/alert";
 import { Accordion } from "@sero/ui/accordion";
 import { Banner } from "@sero/ui/banner";
+import { Calendar } from "@sero/ui/calendar";
 ```
 
 Import the styles in your app:
@@ -38,6 +39,7 @@ import "@sero/ui/styles";
 - **Banner** - Hero banners with 6 variants (flagship/profile/manage × mobile/desktop)
 - **Button** - Primary, secondary, outline, ghost, and destructive variants
 - **ButtonToggle** - Toggle button with attend/pending/attending states
+- **Calendar** - Date picker with single, range, and multiple selection modes
 
 ## Development
 

@@ -3,28 +3,7 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { cn } from "@/lib/utils";
 
-type AccordionSingleProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> & {
-  type: "single";
-  collapsible?: boolean;
-};
-
-type AccordionMultipleProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> & {
-  type: "multiple";
-};
-
-type AccordionProps = AccordionSingleProps | AccordionMultipleProps;
-
-const Accordion = React.forwardRef<
-  React.ComponentRef<typeof AccordionPrimitive.Root>,
-  AccordionProps
->(({ collapsible = true, ...props }, ref) => (
-  <AccordionPrimitive.Root
-    ref={ref}
-    collapsible={props.type === "single" ? collapsible : undefined}
-    {...props}
-  />
-));
-Accordion.displayName = "Accordion";
+const Accordion = AccordionPrimitive.Root;
 
 const AccordionItem = React.forwardRef<
   React.ComponentRef<typeof AccordionPrimitive.Item>,

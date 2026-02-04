@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { Meta } from "@storybook/react-vite";
 import {
   Accordion,
   AccordionContent,
@@ -6,21 +6,20 @@ import {
   AccordionTrigger,
 } from "./accordion";
 
-const meta: Meta<typeof Accordion> = {
+const meta = {
   title: "UI/Accordion",
   component: Accordion,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-};
+} satisfies Meta<typeof Accordion>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   render: () => (
-    <Accordion type="single" className="w-[328px]">
+    <Accordion type="single" collapsible className="w-[328px]">
       <AccordionItem value="item-1">
         <AccordionTrigger>June 2026</AccordionTrigger>
         <AccordionContent>
@@ -31,7 +30,7 @@ export const Default: Story = {
   ),
 };
 
-export const Multiple: Story = {
+export const Multiple = {
   render: () => (
     <Accordion type="multiple" className="w-[328px]">
       <AccordionItem value="item-1">
