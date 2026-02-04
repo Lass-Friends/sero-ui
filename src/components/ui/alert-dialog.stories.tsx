@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { TrashIcon, ExclamationTriangleIcon } from "@heroicons/react/20/solid";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -33,15 +32,14 @@ export const Default: Story = {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogTitle>Title text goes here</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently affect your
-            data.
+            This is an alert dialog description.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+        <AlertDialogFooter layout="stacked">
           <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
@@ -52,50 +50,63 @@ export const Destructive: Story = {
   render: () => (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">
-          <TrashIcon className="size-4" />
-          Delete Account
-        </Button>
+        <Button variant="destructive">Delete Account</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete Account</AlertDialogTitle>
+          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            Are you sure you want to delete your account? All of your data will
-            be permanently removed. This action cannot be undone.
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
+        <AlertDialogFooter layout="inline">
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction variant="destructive">
-            <TrashIcon className="size-4" />
-            Delete
-          </AlertDialogAction>
+          <AlertDialogAction variant="destructive">Delete</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
   ),
 };
 
-export const WithIcon: Story = {
+export const StackedLayout: Story = {
   render: () => (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="outline">Unsaved Changes</Button>
+        <Button variant="outline">Stacked Buttons</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-destructive/10 sm:mx-0">
-            <ExclamationTriangleIcon className="size-6 text-destructive" />
-          </div>
-          <AlertDialogTitle>Unsaved Changes</AlertDialogTitle>
+          <AlertDialogTitle>Confirm action</AlertDialogTitle>
           <AlertDialogDescription>
-            You have unsaved changes. Do you want to save them before leaving?
+            This dialog uses stacked full-width buttons.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Don't Save</AlertDialogCancel>
-          <AlertDialogAction>Save Changes</AlertDialogAction>
+        <AlertDialogFooter layout="stacked">
+          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  ),
+};
+
+export const InlineLayout: Story = {
+  render: () => (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button variant="outline">Inline Buttons</Button>
+      </AlertDialogTrigger>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Confirm action</AlertDialogTitle>
+          <AlertDialogDescription>
+            This dialog uses inline buttons aligned to the right.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter layout="inline">
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
@@ -115,9 +126,9 @@ export const SmallSize: Story = {
             Are you sure you want to proceed?
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>No</AlertDialogCancel>
+        <AlertDialogFooter layout="stacked">
           <AlertDialogAction>Yes</AlertDialogAction>
+          <AlertDialogCancel>No</AlertDialogCancel>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
@@ -140,31 +151,9 @@ export const LargeSize: Story = {
             rights as a user of our platform.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
+        <AlertDialogFooter layout="inline">
           <AlertDialogCancel>Decline</AlertDialogCancel>
           <AlertDialogAction>Accept</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
-  ),
-};
-
-export const BlurOverlay: Story = {
-  render: () => (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">Blur Overlay</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent overlayVariant="blur">
-        <AlertDialogHeader>
-          <AlertDialogTitle>Blurred Background</AlertDialogTitle>
-          <AlertDialogDescription>
-            This dialog uses a blurred backdrop effect for a softer appearance.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

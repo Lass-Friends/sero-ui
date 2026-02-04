@@ -44,7 +44,7 @@ function AlertDialogOverlay({
 }
 
 const contentVariants = cva(
-  "fixed left-1/2 top-1/2 z-50 grid w-full max-w-md -translate-x-1/2 -translate-y-1/2 gap-4 rounded-2xl bg-popover p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+  "fixed left-1/2 top-1/2 z-50 grid w-full max-w-md -translate-x-1/2 -translate-y-1/2 gap-4 rounded-2xl border border-border bg-popover p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
   {
     variants: {
       size: {
@@ -100,17 +100,32 @@ function AlertDialogHeader({
   );
 }
 
+const footerVariants = cva("flex gap-2", {
+  variants: {
+    layout: {
+      stacked: "flex-col",
+      inline: "flex-row justify-end",
+    },
+  },
+  defaultVariants: {
+    layout: "stacked",
+  },
+});
+
+export interface AlertDialogFooterProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof footerVariants> {}
+
 function AlertDialogFooter({
   className,
+  layout = "stacked",
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: AlertDialogFooterProps) {
   return (
     <div
       data-slot="alert-dialog-footer"
-      className={cn(
-        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
-        className
-      )}
+      data-layout={layout}
+      className={cn(footerVariants({ layout }), className)}
       {...props}
     />
   );
@@ -149,7 +164,7 @@ function AlertDialogDescription({
 }
 
 const actionVariants = cva(
-  "inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md px-4 text-sm font-semibold outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40",
+  "inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-lg px-4 text-sm font-semibold outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40 [[data-layout=stacked]_&]:w-full",
   {
     variants: {
       variant: {
@@ -191,7 +206,7 @@ function AlertDialogCancel({
     <AlertDialogPrimitive.Cancel
       data-slot="alert-dialog-cancel"
       className={cn(
-        "inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-border bg-background px-4 text-sm font-semibold outline-none transition-colors hover:bg-accent/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40",
+        "inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-border bg-transparent px-4 text-sm font-semibold text-foreground outline-none transition-colors hover:bg-accent/50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40 [[data-layout=stacked]_&]:w-full",
         className
       )}
       {...props}
@@ -213,5 +228,6 @@ export {
   AlertDialogCancel,
   overlayVariants,
   contentVariants,
+  footerVariants,
   actionVariants,
 };
