@@ -103,15 +103,3 @@ export const Destructive: Story = {
   ),
 };
 
-export const AsChild: Story = {
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Button asChild>
-        <a href="#">Link styled as button</a>
-      </Button>
-      <Button variant="outline" asChild>
-        <a href="#">Outline link</a>
-      </Button>
-    </div>
-  ),
-};

@@ -5,7 +5,10 @@
 - `pnpm build` - Build library to dist/
 
 ## Code Style
-- Use Tailwind classes, never inline hex values
+- **ALWAYS use design tokens** - This is a design system component library. NEVER hardcode values (colors, spacing, radii, line-heights, font sizes, etc.). Everything must use tokens so the system scales properly.
+- Reference tokens from `src/styles/globals.css` (e.g., `text-foreground`, `bg-muted`, `rounded-md`)
+- If a token doesn't exist, add it to globals.css first
+- Always reuse existing components - never duplicate component logic (e.g., use Avatar instead of raw img tags)
 - Icons: `@heroicons/react/16/solid` (mini) or `@heroicons/react/20/solid`
 - Variants: Use CVA (class-variance-authority)
 - IMPORTANT: Match Figma designs exactly

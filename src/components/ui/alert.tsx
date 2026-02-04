@@ -65,10 +65,10 @@ function AlertTitle({
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return (
-    <h5
+    <span
       data-slot="alert-title"
       className={cn(
-        "text-sm font-semibold tracking-[-0.03em] text-foreground",
+        "font-sans text-sm font-semibold tracking-[-0.03em] text-foreground",
         className
       )}
       {...props}

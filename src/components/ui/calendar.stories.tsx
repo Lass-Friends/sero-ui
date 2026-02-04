@@ -46,16 +46,3 @@ export const Range = {
   },
 };
 
-export const Multiple = {
-  render: function MultipleCalendar() {
-    const [dates, setDates] = React.useState<Date[] | undefined>([new Date()]);
-    return (
-      <Calendar
-        mode="multiple"
-        selected={dates}
-        onSelect={setDates}
-        className="rounded-lg border border-border"
-      />
-    );
-  },
-};

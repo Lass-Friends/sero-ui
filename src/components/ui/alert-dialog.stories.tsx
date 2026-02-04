@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -27,8 +26,8 @@ type Story = StoryObj<typeof AlertDialog>;
 export const Default: Story = {
   render: () => (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">Open</Button>
+      <AlertDialogTrigger className="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-semibold border border-border bg-background hover:bg-accent/50 active:bg-accent/70 h-8 px-3 py-2">
+        Open
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -46,11 +45,11 @@ export const Default: Story = {
   ),
 };
 
-export const Destructive: Story = {
+export const Inline: Story = {
   render: () => (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="destructive">Delete Account</Button>
+      <AlertDialogTrigger className="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-semibold bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80 h-8 px-3 py-2">
+        Delete Account
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -60,9 +59,9 @@ export const Destructive: Story = {
             account and remove your data from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+        <AlertDialogFooter inline>
+          <AlertDialogCancel className="w-auto">Cancel</AlertDialogCancel>
+          <AlertDialogAction className="w-auto bg-destructive text-destructive-foreground hover:bg-destructive/90">
             Delete
           </AlertDialogAction>
         </AlertDialogFooter>

@@ -36,9 +36,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     size: "md",
-    shape: "circle",
-    status: "none",
-    fallback: "JD",
+    shape: "rounded",
+    status: "star",
+    src: "https://i.pravatar.cc/300?img=47",
   },
 };
 
@@ -61,31 +61,12 @@ export const Sizes: Story = {
   ),
 };
 
-export const WithFallback: Story = {
-  render: () => (
-    <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-4">
-        <Avatar shape="circle" fallback="John Doe" />
-        <Avatar shape="circle" fallback="Jane Smith" />
-        <Avatar shape="circle" fallback="Alex Brown" />
-        <Avatar shape="circle" fallback="Sam Wilson" />
-      </div>
-      <div className="flex items-center gap-4">
-        <Avatar shape="rounded" fallback="John Doe" />
-        <Avatar shape="rounded" fallback="Jane Smith" />
-        <Avatar shape="rounded" fallback="Alex Brown" />
-        <Avatar shape="rounded" fallback="Sam Wilson" />
-      </div>
-    </div>
-  ),
-};
-
 export const WithStatus: Story = {
   render: () => (
     <div className="flex items-end gap-4">
-      <Avatar size="md" shape="rounded" src="https://i.pravatar.cc/150?img=1" status="star" />
-      <Avatar size="lg" shape="rounded" src="https://i.pravatar.cc/150?img=1" status="star" />
-      <Avatar size="xl" shape="rounded" src="https://i.pravatar.cc/150?img=1" status="star" />
+      <Avatar size="md" shape="rounded" src="https://i.pravatar.cc/300?img=47" status="star" />
+      <Avatar size="lg" shape="rounded" src="https://i.pravatar.cc/300?img=47" status="star" />
+      <Avatar size="xl" shape="rounded" src="https://i.pravatar.cc/300?img=47" status="star" />
     </div>
   ),
 };

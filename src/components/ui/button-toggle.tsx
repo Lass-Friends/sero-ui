@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 type ToggleState = "attend" | "pending" | "attending";
 
 const buttonToggleVariants = cva(
-  "inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-semibold border border-[#0A0A0A] h-8 px-3 transition-colors",
+  "inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-semibold border border-background h-8 px-3 transition-all duration-200",
   {
     variants: {
       state: {
@@ -27,7 +27,7 @@ export interface ButtonToggleProps
   onStateChange?: (state: ToggleState) => void;
 }
 
-const stateOrder: ToggleState[] = ["attend", "pending", "attending"];
+const stateOrder: ToggleState[] = ["attend", "attending", "pending"];
 
 function ButtonToggle({
   className,
@@ -51,19 +51,12 @@ function ButtonToggle({
     props.onClick?.(e);
   };
 
-  const icons = {
-    attend: <PlusIcon className="size-4" />,
-    pending: <ClockIcon className="size-4" />,
-    attending: <CheckIcon className="size-4" />,
-  };
-
   const labels = {
     attend: "Attend",
     pending: "Pending",
     attending: "Attending",
   };
 
-  const icon = icons[state];
   const label = labels[state];
 
   return (
@@ -74,7 +67,32 @@ function ButtonToggle({
       onClick={handleClick}
       {...props}
     >
-      {icon}
+      <span className="relative size-4">
+        <PlusIcon
+          className={cn(
+            "absolute inset-0 size-4 transition-all duration-200",
+            state === "attend"
+              ? "opacity-100 rotate-0 scale-100"
+              : "opacity-0 rotate-90 scale-0"
+          )}
+        />
+        <ClockIcon
+          className={cn(
+            "absolute inset-0 size-4 transition-all duration-200",
+            state === "pending"
+              ? "opacity-100 rotate-0 scale-100"
+              : "opacity-0 -rotate-90 scale-0"
+          )}
+        />
+        <CheckIcon
+          className={cn(
+            "absolute inset-0 size-4 transition-all duration-200",
+            state === "attending"
+              ? "opacity-100 rotate-0 scale-100"
+              : "opacity-0 -rotate-90 scale-0"
+          )}
+        />
+      </span>
       <span>{label}</span>
     </button>
   );

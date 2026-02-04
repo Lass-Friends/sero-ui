@@ -1,11 +1,11 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-// iOS-style squircle masks with smooth continuous corners
-const squircleMask = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,33 C 0,7 7,0 33,0 L 67,0 C 93,0 100,7 100,33 L 100,67 C 100,93 93,100 67,100 L 33,100 C 7,100 0,93 0,67 Z' fill='black'/%3E%3C/svg%3E")`;
+// iOS-style squircle mask with 25% corners (scales proportionally to all sizes)
+const squircleMask = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,25 C 0,6 6,0 25,0 L 75,0 C 94,0 100,6 100,25 L 100,75 C 100,94 94,100 75,100 L 25,100 C 6,100 0,94 0,75 Z' fill='black'/%3E%3C/svg%3E")`;
 
-// Rounder version for small badges
-const badgeMask = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,42 C 0,10 10,0 42,0 L 58,0 C 90,0 100,10 100,42 L 100,58 C 100,90 90,100 58,100 L 42,100 C 10,100 0,90 0,58 Z' fill='black'/%3E%3C/svg%3E")`;
+// Rounder version for small badges (45% corners for more rounded look)
+const badgeMask = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M 0,45 C 0,12 12,0 45,0 L 55,0 C 88,0 100,12 100,45 L 100,55 C 100,88 88,100 55,100 L 45,100 C 12,100 0,88 0,55 Z' fill='black'/%3E%3C/svg%3E")`;
 
 const AVATAR_COLORS = [
   "bg-red-400",
@@ -48,7 +48,15 @@ const statusSizes = {
   sm: "h-2.5 w-2.5",
   md: "h-3 w-3",
   lg: "h-3.5 w-3.5",
-  xl: "h-6 w-6",
+  xl: "h-5 w-5",
+} as const;
+
+const statusPositions = {
+  xs: "-bottom-0.5 -right-0.5",
+  sm: "-bottom-0.5 -right-0.5",
+  md: "-bottom-0.5 -right-0.5",
+  lg: "-bottom-0.5 -right-0.5",
+  xl: "-bottom-1 -right-1",
 } as const;
 
 
@@ -81,10 +89,19 @@ function Avatar({
           "h-full w-full overflow-hidden",
           shape === "circle" && "rounded-full border-2 border-[#0A0A0A]"
         )}
-        style={shape === "rounded" ? { maskImage: squircleMask, maskSize: "100% 100%" } : undefined}
+        style={shape === "rounded" ? {
+          maskImage: squircleMask,
+          maskSize: "100% 100%"
+        } : undefined}
       >
         {src ? (
-          <img src={src} alt={alt} className="h-full w-full object-cover" />
+          <img
+            src={src}
+            alt={alt}
+            decoding="async"
+            fetchPriority="high"
+            className="h-full w-full object-cover"
+          />
         ) : (
           <div
             className={cn(
@@ -100,7 +117,8 @@ function Avatar({
         <div
           data-slot="avatar-status"
           className={cn(
-            "absolute -bottom-0.5 -right-0.5",
+            "absolute",
+            statusPositions[size],
             statusSizes[size]
           )}
         >
@@ -115,7 +133,7 @@ function Avatar({
             <svg
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-3/4 w-3/4 text-background"
+              className="h-[60%] w-[60%] text-background"
             >
               <path
                 fillRule="evenodd"

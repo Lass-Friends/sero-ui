@@ -73,15 +73,24 @@ function AlertDialogHeader({
   );
 }
 
+interface AlertDialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+  inline?: boolean;
+}
+
 function AlertDialogFooter({
   className,
+  inline = false,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: AlertDialogFooterProps) {
   return (
     <div
       data-slot="alert-dialog-footer"
+      data-inline={inline}
       className={cn(
-        "mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end",
+        "mt-6 flex gap-2",
+        inline
+          ? "flex-row justify-end"
+          : "flex-col-reverse",
         className
       )}
       {...props}
@@ -128,7 +137,7 @@ function AlertDialogAction({
   return (
     <AlertDialogPrimitive.Action
       data-slot="alert-dialog-action"
-      className={cn(buttonVariants(), "w-full sm:w-auto", className)}
+      className={cn(buttonVariants(), "w-full", className)}
       {...props}
     />
   );
@@ -143,7 +152,7 @@ function AlertDialogCancel({
       data-slot="alert-dialog-cancel"
       className={cn(
         buttonVariants({ variant: "outline" }),
-        "w-full sm:w-auto",
+        "w-full",
         className
       )}
       {...props}
